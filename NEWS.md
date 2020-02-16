@@ -1,7 +1,13 @@
+# Version 0.14-4
+
+- edited `README.md` to reflect the CRAN release of the package, since it
+  contained some text that was meant for the pre-CRAN Github version only.
+
+
 # Version 0.14-3 (CRAN)
 
-- now using `exportClass` to export classes rather than `exportClassPattern` with a lazy
-  regexp.
+- now using `exportClass` to export classes rather than `exportClassPattern`
+  with a lazy regexp.
 
 
 # Version 0.14-2
