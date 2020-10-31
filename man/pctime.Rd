@@ -1,144 +1,165 @@
-\name{pctime}
-%\alias{pc.omitneg}
-\alias{toSeason}
-\alias{toSeasonPair}
-\alias{ttTosl}
-\alias{ttmatToslPairs}
-\title{ Functions for some basic operations with seasons}
-\description{Functions for some basic operations with seasons.}
-\usage{
-%pc.omitneg(lags, maxlag)
-toSeason(t, period, t1 = 1, from = 1)
-toSeasonPair(t, s, period, ...)
-ttTosl(r, period)
-ttmatToslPairs(i, j, period)
+\name{Pctime}
+\alias{Pctime}
+\alias{as_Pctime.Cyclic}
+\alias{as_Pctime.PeriodicTimeSeries}
+\alias{[.Pctime}
+\alias{[[.Pctime}
+\alias{[.Date}
+\alias{[[.Date}
+\alias{[.ts}
+\alias{[<-.POSIXlt}
+\alias{as_Pctime}
+\title{Pctime objects}
+\description{
+
+  Class \code{"Pctime"} is an S3 class inheriting from the base R
+  datetime class \code{"POSIXct"}. It has methods for conversion between
+  datetimes and the pcts cycle-season pairs, as well as convenience
+  methods for a few other functions.
+  
 }
-%- maybe also 'usage' for other objects documented here.
+\usage{
+Pctime(x, cycle, \dots)
+
+as_Pctime(x, \dots)
+
+\method{[}{Pctime}(x, i, j, drop = TRUE)
+
+\method{[[}{Pctime}(x, \dots, drop = TRUE)
+
+\method{as_Pctime}{Cyclic}(x, \dots)
+
+\method{as_Pctime}{PeriodicTimeSeries}(x, \dots)
+}
 \arguments{
-%  \item{lags}{ todo: describe! }
-%  \item{maxlag}{ todo: describe! }
+  \item{x}{
 
-  \item{r}{covariance matrix, see `Details'.}
+    for \code{Pctime}, numeric vector, matrix with two columns, or any
+    object that is or can be converted to datetime. For the other
+    functions see Details.
 
-  \item{t}{a vector of integers, representing times.}
-  \item{s}{a vector of integers, representing times.}
+  }
+  \item{cycle}{
+    
+    a positive integer, cycle object, or missing. 
 
-  \item{period}{the number of seasons.}
-  \item{t1}{time corresponding to the first season, an integer number.}
-  \item{from}{1 or 0, depending on whether the season numbers start from
-    1 or 0.}
-
-  \item{i}{a vector of integers.}
-  \item{j}{a vector of integers.}
-
-  \item{\dots}{ todo: describe! }
-
+  }
+  \item{i}{subscript}
+  \item{j}{noi used}
+  \item{drop}{not used}
+  % \item{value}{a replacement value for the selected subset.}
+  \item{\dots}{further argument for methods.}
 }
 \details{
 
- \code{ttmatToslPairs(i,j,period)} transforms time-time pairs to
- season-lag pairs. The time pairs are obtained by pairing each element
- of \code{i} with each element of \code{j}. A four column matrix is
- created with one row for each pair \code{(t,s)}, such that
- \code{t=i[m]} and \code{s=j[n]} for some \code{m} and \code{n}.  The
- row is \code{m, n, s, l}, where \code{(s,l)} is the season-lag pair
- corresponding to \code{(t,s)}.
+\code{Pctime} represents periodic times with cycle specification
+contained in attribute \code{"cycle"}. It is basically datetime
+(inheriting from \code{"POSIXct"}) with additional attribute(s).
 
- \code{ttTosl(r,period)} converts autocovariances given in a covariance
- matrix (i.e. in ``tt'' form) to the ``sl'' form. The result is a
- \code{period x (maxlag+1)} matrix, where \code{maxlag} is the maximal
- lag available in \code{r}. Entries for which no values are available
- are filled with \code{NA}'s.  Warning is given if contradictory entries
- are found (i.e. if \code{r} is not from a periodically correlated
- process with the given period).
+For printing Pctime objects are shown as cycle-season pairs.  To print
+in other formats, just convert them using \code{as_datetime} or other
+suitable function. Note though that some cycles in pcts do not have
+natural datetime representation. For them, Pctime sets it arbitrarilly
+as the number of seconds from a origin.
 
- \code{toSeason(t,period,t1=1,from=1)} returns the season corresponding
- to \code{t}.  \code{t1} is a time (integer) whose season is the first
- season, \code{from} is 1 if the numbering of seasons is 1,2,...,period,
- or 0 if the numbering of seasons is 0,1,...,period-1.  Other values for
- \code{from} are not admissible (but not checked).  \strong{Note:} some
- of the functions in this package implicitly assume that \code{t1=1} and
- \code{from=1}.
+The seasons in cycle-season pairs are numbered from one to the number
+of seasons. Names and abbreviations are used when available and this is
+the case for all builtin cycles and partial cycles obtained from them. 
 
- \code{toSeasonPair(t,s,period)} converts the ``tt'' pair \code{t,s} to
- ``sl'' pair and returns the result in the form of a list with elements
- \code{season} and \code{lag}. Currently \code{t} and \code{s} must be
- scalars.
+The cycles in cycle-season pairs are numbered from a starting point.
+For years, it is what is expected. For cycles representing weeks, week 1
+is the first ISO week of 1970, so \code{c(1,1)} corresponds to
+1969-12-29. For some other cycle classes \code{c(1,1)} also corresponds
+to the first time in the first ISO week of 1970.
 
- \code{pc.omitneg} helps to implement dropping of negative indices in
- season-lag objects. It returns its first argument, \code{lags}, if all
- of its elements are non-negative. Otherwise, all elements of
- \code{lags} must be non-positive. In this case the function creates the
- vector \code{0:maxlag} and drops the elements specified by lags.  Note
- that the default indexing will not work properly since zero elements in
- an index are omitted (and there are such indices in season-lag
- objects).
+Subsetting with \code{"["} keeps the \code{Pctime} class, while
+\code{"[["} returns a datetime object. Other standard functions work
+with Pctime objects, as well, including \code{seq}.
+
+A common source of frustration is the accidental use of \code{as.Date}
+or \code{as_date}, instead of \code{as.POSIXlt} or \code{as_datetime}.
+These four are often equivalent, most notably for monthly, quarterly and
+daily observations but, in general, conversion to dates drops the
+fractional day part of a datetime.
+
+The default time zone is UTC. Other time zones can be used since the
+calculations use standard datetime and date functions from base R and
+package lubridate \insertCite{lubridate}{pcts}, but currently this has
+not been tested.
 
 }
 \value{
-
-  for \code{ttmatToslPairs}, a matrix with four columns;
-
-  for \code{ttTosl}, a matrix with \code{period} rows;
-
-  for \code{toSeason(t,period,t1=1,from=1)}, a vector of integers;
-
-  for \code{toSeasonPair(t,s,period)}, a list with elements
-  \code{season} and \code{lag};
-
-  for \code{pc.omitneg}, a vector of lags (non-negative integers).
+  for \code{Pctime}, an object from S3 class Pctime
+  
 }
 \references{
-  % bibentry: boshnakov2009gen
-Boshnakov GN and Iqelan BM (2009).
-``Generation of time series models with given spectral
-properties.''
-\emph{J. Time Series Anal.}, \bold{30}(3), pp. 349--368.
-ISSN 0143-9782, \url{http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x}.
-% end:bibentry:  boshnakov2009gen
+   \insertAllCited{}
 }
-\author{Georgi N. Boshnakov}
-\note{
+%\author{
+%%%  ~~who you are~~
+%}
+%\note{
+%%%  ~~further notes~~
+%}
+%
+%%% ~Make other sections like Warning with \section{Warning }{....} ~
 
-  2013-10-24 - Corrected the description of the return value of
-  \code{ttmatToslPairs}. It incorrectly stated that the first two
-  columns are "tt" pair (they are actually indices in \code{i} and
-  \code{j}).
-
-}
-%\seealso{ \code{\link{pcAcvf}} }
+%\seealso{
+%%% ~~objects to See Also as \code{\link{help}}, ~~~
+%}
 \examples{
-# ttmatToslPairs
-ttmatToslPairs(3, 3, 4)  # 1, 1, 3, 0
-ttmatToslPairs(3, 2, 4)  # 1, 1, 3, 1
+## a bare bone date for four seasons
+pct4 <- Pctime(c(2020, 2), pcCycle(4))
+pct4
 
-ttmatToslPairs(1:4, 1:4, 4)
+## quarterly cycle
+Pctime("2020-04-01", BuiltinCycle(4))
+pctQ <- Pctime(c(2020, 2), BuiltinCycle(4))  # same
+pctQ
 
-ttmatToslPairs(3:4, 3:4, 4)
+## day-in-week cycle
+## c(1, 1) is the start of the first ISO week of 1970
+weekW1S1 <- Pctime(c(1, 1), BuiltinCycle(7))  # W1 Mon
+weekW1S1
+as_datetime(weekW1S1)
 
-# ttTosl -  :todo:
+Pctime("1970-01-01", BuiltinCycle(7)) #  W1 Thu
+pctW1Th <- Pctime(c(1, 4), BuiltinCycle(7))  # same
+pctW1Th
 
-# toSeason
-toSeason(1:10, 4)           # 1 2 3 4  1 2 3 4  1 2
-toSeason(1:10, 4, from = 0) # 0 1 2 3  0 1 2 3  0 1
+Pctime("2020-04-01", BuiltinCycle(7))
+pctW2623Wed <- Pctime(c(2623, 3), BuiltinCycle(7))  # same
+pctW2623Wed
+as_datetime(pctW2623Wed)
 
-## first data is for 3rd quarter
-toSeason(1:10, 4, t1 = 3)  # 3 4 1 2 3 4 1 2 3 4
+## Monday-Friday week - a partial cycle derived from DayOfWeekCycle
+BuiltinCycle(5)
+pctMF <- Pctime("2020-04-03", BuiltinCycle(5)) # Fri
+seq(pctMF, length.out = 10) # note: Sat, Sun are skipped
 
-# toSeasonPair
-toSeasonPair(3, 3, period=4) # season=3, lag = 0
-toSeasonPair(8, 8, period=4) # season=4, lag = 0
+Pctime("2020-04-04", BuiltinCycle(5)) # Sat, not in the cycle
 
-toSeasonPair(3, 2, period=4) # season=3, lag = 1
-toSeasonPair(7, 6, period=4) # same
+## monthly cycle
+Pctime("2020-04-01", BuiltinCycle(12))
+pctY2020Apr <- Pctime(c(50, 4), BuiltinCycle(12))  # same
+pctY2020Apr
+as_datetime(pctW2623Wed)
 
-#### # pc.omitneg
-#### pc.omitneg(0:5,10) # 0:5, unchaged since all values >= 0
-#### 
-#### pc.omitneg(-(0:5),10) # 6:10, works like
-#### (0:10)[-(0:5 +1)]     # same
-#### 
-#### # don't mix positive and negative numbers in pc.omitneg
-#### \dontrun{pc.omitneg(c(0,2,3,-4,5), 10)}
+## Pctime can hold a vector of times
+ap <- pcts(AirPassengers)
+aptime <- Pctime(ap)              #  as_Pctime(ap)
+aptime[1:12] # keep Pctime class
+aptime[1]
+
+aptime[[1]] # drop Pctime class
+
+head(aptime)
+tail(aptime)
+
+apdates <- as_datetime(ap)
+head(apdates)
+tail(apdates)
 }
-\keyword{pctime}% at least one, from doc/KEYWORDS
+\keyword{pcts}
+\keyword{chron}
+% use one of  RShowDoc("KEYWORDS")

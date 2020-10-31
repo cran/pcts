@@ -4,6 +4,9 @@
 \name{pcts_reexports}
 \alias{pcts_reexports}
 \alias{slMatrix}
+\alias{date}
+\alias{as.Date}
+\alias{na.trim}
 
 \title{Objects exported from other packages}
 \description{
@@ -12,6 +15,12 @@
 
   \describe{
     \item{lagged}{\code{\link[lagged]{slMatrix}}}
+    \item{date}{\code{\link[lubridate]{date}}}
+    \item{as.Date}{\code{\link[zoo]{as.Date}}}
+    \item{as.Date}{\code{\link[zoo]{na.trim}},
+      see the examples in \code{\link{availStart}} for the methods
+      defined in package \dQuote{pcts}.
+    }
   }
 }
 \keyword{internal}

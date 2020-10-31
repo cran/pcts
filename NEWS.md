@@ -1,4 +1,73 @@
-# Version 0.14-4
+# Version 0.15.0
+
+## User visible changes
+
+- vastly improved support for dates/times. 
+
+- new generic `pcIntercept`
+
+- update methods for `pcMean`
+
+- `pc_sdfactor` now returns a matrix also in the case `maxlag = 0` (as
+  documented).
+
+- `pc.sdfactor` was renamed to `pc_sdfactor`. `pc.sdfactor`is available but
+  deprecated.
+
+- new function `pc_mean`.
+
+- `pc_sum` gets argument `na.rm` and a more efficient implementation.
+
+- new methods for `zoo::na.trim`.
+
+- new subset PAR models with trigonometric parameterisation.
+
+- use some datetime functions from `lubridate`, reexport `lubridate::date`and
+  `lubridate::date<-`.
+
+- first draft of a data vignette.
+
+- added missing `predict`, `residuals`, and `fitted` methods.
+
+- improved `pcTest()`.
+
+- included "nsadata.csv" in the package, currently as internal data for testing.
+  
+  Need description and maybe a better name before exporting.  Object `datansa`
+  is the whole dataset, object `nsaauto` is column "AUTOMOTIVEPRODNSA".
+
+- removed deprecated function `ptildeorders()`, use `pdSafeParOrder()` instead.
+
+- removed class union "AnyTimeSeries", it had not been in use for a long time.
+
+
+## Bug fixes and cleanup
+
+- fixed use of suggested package to comply with CRAN policies
+
+- in `test_piar()`, now p-balues are said to NA if package `fUnitRoots` is not
+  available. Previously an error was thrown.
+
+
+- removed package `pear` from dependencies
+
+- consolidated the dependencies.
+
+- replaced wrong use of `is.na()` with `gbutils::isNA()` or other suitable code.
+
+- some old code contained instances of `class(x) == something`, now fixed.
+
+- changed slightly some Rd files not rendered well by pkgdown, e.g. move
+  commented items out of 'describe' in methods' descriptions.
+
+- extensive testing and bug fixing.
+
+
+# Version 0.14-4 (CRAN)
+
+- fixed a bug revealed by changes in R-devel circa start of February 2020. It
+  was related to a change in variable names for some interactions produced by
+  `lm()`, see [this R-devel question](https://r.789695.n4.nabble.com/changed-names-from-lm-in-R-devel-td4761450.html). 
 
 - edited `README.md` to reflect the CRAN release of the package, since it
   contained some text that was meant for the pre-CRAN Github version only.

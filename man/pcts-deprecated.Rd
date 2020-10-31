@@ -12,12 +12,11 @@
   the recommended renamed or new functions instead.
 
 }
-\usage{
-ptildeorders(\dots)
-}
-\arguments{
-  \item{...}{arguments pass on to the new function.}
-}
+%\usage{
+%}
+%\arguments{
+%  \item{...}{arguments pass on to the new function.}
+%}
 \details{
   
   \describe{
@@ -27,8 +26,3 @@ ptildeorders(\dots)
 
   }
 }
-
-
-
-
-

@@ -1,20 +1,22 @@
-import(methods, stats4, Matrix, BB, PolynomF, zoo, lagged, sarima)
+import(methods, stats4, Matrix, PolynomF, zoo, xts, lagged, sarima) # BB
 
 importFrom(gbutils,shiftright,shiftleft)
 importFrom(gbutils,myouter)
-importFrom(gbutils,nposargs,isargunnamed)
-importFrom(ltsa, tacvfARMA)
+importFrom(gbutils,nposargs,isargunnamed,isNA)
 
 importFrom(graphics, boxplot, layout, par, points, lines, axis, mtext)
-importFrom(utils, capture.output)
-importFrom(stats, ARMAacf, Box.test, C, as.formula,
-           frequency, start, end, cycle, deltat, time, window,
+importFrom(utils, capture.output, str)
+importFrom(stats, complete.cases, ARMAacf, Box.test, C, as.formula,
+           frequency, start, end, cycle, deltat, time, window, "window<-",
            lm, na.exclude, nls, optim,
            pchisq, pnorm, qnorm, rnorm, runif,
-           residuals, fitted, predict, printCoefmat,
+           residuals, fitted, predict, printCoefmat, weighted.residuals,
            ts, as.ts, monthplot)
 
-importFrom(lubridate, minutes, hm, ymd)
+importFrom(lubridate, minutes, hm, ymd,  is.Date, weeks, days,  period,
+           date, "date<-", as_datetime, as_date)
+
+importFrom(BB, BBoptim)
 
 import(sarima)
 
@@ -22,6 +24,28 @@ importFrom(mcompanion, chain_ind, mf_VSform, null_complement, sim_pcfilter)
 importFrom(Rdpack, reprompt)
 
 S3method(as.matrix, PeriodicMTS)
+S3method(as.Date, PeriodicTimeSeries)
+S3method(as.Date, Cyclic)
+S3method(as.POSIXct, Cyclic)
+S3method(as.POSIXct, PeriodicTimeSeries)
+
+S3method(date, Cyclic)
+S3method(date, PeriodicTimeSeries)
+
+
+
+S3method(as_Pctime, Cyclic)
+## S3method(as_Pctime, PeriodicTimeSeries)
+
+S3method(format, Pctime)
+S3method(str, Pctime)
+S3method(seq, Pctime)
+S3method(as.POSIXct, Pctime)
+S3method("[", Pctime)
+S3method("[[", Pctime)
+
+S3method(cycle, Pctime)
+
 
 # S3method(as.matrix, slMatrix)
 # S3method(as.matrix, PeriodicAutocovariance)
@@ -38,20 +62,34 @@ S3method(boxplot, PeriodicTimeSeries)
 S3method(as.ts, PeriodicTimeSeries)
 
 S3method(start, Cyclic)
-S3method(end,       PeriodicTimeSeries)
+S3method(end,   Cyclic)
 S3method(frequency, PeriodicTimeSeries)
 S3method(deltat,    PeriodicTimeSeries)
 S3method(cycle,     PeriodicTimeSeries)
 S3method(time,      PeriodicTimeSeries)
 S3method(window, PeriodicTS)
 S3method(window, PeriodicMTS)
+S3method("window<-", PeriodicTS)
+S3method("window<-", PeriodicMTS)
 
 S3method(availStart, default)
 S3method(availStart, matrix)
 S3method(availEnd, default)
 S3method(availEnd, matrix)
 
+## zoo::na.trim
+S3method(na.trim, PeriodicTS)
+S3method(na.trim, PeriodicMTS)
+
+
 S3method(residuals, FittedPeriodicArModel)
+
+S3method(residuals, FittedPM)
+S3method(fitted, FittedPM)
+S3method(predict, FittedPM)
+
+S3method(predict, SubsetPM)
+
 
 exportMethods(
     head,
@@ -67,75 +105,86 @@ exportMethods(
     ## nSeasons,
     autocorrelations,
     autocovariances,
-    sigmaSq
+    sigmaSq,
+
+    as_date,
+    as_datetime,
+
+    coef,
+    residuals,
+    fitted,
+    vcov
 )
 
 # exportClassPattern("^[^\\.]")
 
 exportClasses(
-  AnyTimeSeries,                     
-  BareCycle,                         
-  BasicCycle,                        
-  BuiltinCycle,                      
-  Cyclic,                            
-  DayWeekCycle,                      
-  Every30MinutesCycle,               
-  FittedPeriodicArModel,             
-  FiveDayWeekCycle,                  
-  LegacyPeriodicFilterModel,         
-  mcOptimCore,                       
-  ModelCycleSpec,                    
-  MonthYearCycle,                    
-  OpenCloseCycle,                    
-  PartialPeriodicAutocorrelations,   
-  PeriodicArFilter,                  
-  PeriodicArmaFilter,                
-  PeriodicArmaModel,                 
-  PeriodicArmaSpec,                  
-  PeriodicArModel,                   
-  PeriodicAutocorrelations,          
-  PeriodicAutocovariances,           
-  PeriodicBJFilter,                  
-  PeriodicFilterModel,               
-  PeriodicIntegratedArmaSpec,        
-  PeriodicInterceptSpec,             
-  PeriodicMaFilter,                  
-  PeriodicMaModel,                   
-  PeriodicMonicFilterSpec,           
-  PeriodicMTS,                       
-  PeriodicMTS_ts,                    
-  PeriodicMTS_zooreg,                
-  PeriodicSPFilter,                  
-  PeriodicTimeSeries,                
-  PeriodicTS,                        
-  PeriodicTS_ts,                     
-  PeriodicTS_zooreg,                 
-  PeriodicVector,                    
-  PiPeriodicArmaModel,               
-  PiPeriodicArModel,                 
-  PiPeriodicMaModel,                 
-  QuarterYearCycle,                  
-  SamplePeriodicAutocorrelations,    
-  SamplePeriodicAutocovariances,     
-  SimpleCycle,                       
-  SiPeriodicArmaModel,               
-  SiPeriodicArModel,                 
-  SiPeriodicMaModel,                 
-  SLTypeMatrix,                      
-  VirtualPeriodicArmaModel,          
-  VirtualPeriodicArModel,            
-  VirtualPeriodicAutocorrelations,   
+  BareCycle,
+  BasicCycle,
+  BuiltinCycle,
+  Cyclic,
+  DayWeekCycle,
+  PartialCycle,
+  Every30MinutesCycle,
+  FittedPeriodicArModel,
+  FittedPeriodicArmaModel,
+  FiveDayWeekCycle,
+  LegacyPeriodicFilterModel,
+  mcOptimCore,
+  ModelCycleSpec,
+  MonthYearCycle,
+  OpenCloseCycle,
+  PartialPeriodicAutocorrelations,
+  PeriodicArFilter,
+  PeriodicArmaFilter,
+  PeriodicArmaModel,
+  PeriodicArmaSpec,
+  PeriodicArModel,
+  PeriodicAutocorrelations,
+  PeriodicAutocovariances,
+  PeriodicBJFilter,
+  PeriodicFilterModel,
+  PeriodicIntegratedArmaSpec,
+  PeriodicInterceptSpec,
+  PeriodicMaFilter,
+  PeriodicMaModel,
+  PeriodicMonicFilterSpec,
+  PeriodicMTS,
+  PeriodicMTS_ts,
+  PeriodicMTS_zooreg,
+  PeriodicSPFilter,
+  PeriodicTimeSeries,
+  PeriodicTS,
+  PeriodicTS_ts,
+  PeriodicTS_zooreg,
+  PeriodicVector,
+  PiPeriodicArmaModel,
+  PiPeriodicArModel,
+  PiPeriodicMaModel,
+  QuarterYearCycle,
+  SamplePeriodicAutocorrelations,
+  SamplePeriodicAutocovariances,
+  SimpleCycle,
+  SiPeriodicArmaModel,
+  SiPeriodicArModel,
+  SiPeriodicMaModel,
+  SLTypeMatrix,
+  VirtualPeriodicArmaModel,
+  VirtualPeriodicArModel,
+  VirtualPeriodicAutocorrelations,
   VirtualPeriodicAutocovarianceModel,
-  VirtualPeriodicAutocovariances,    
-  VirtualPeriodicFilterModel,        
-  VirtualPeriodicMaModel,            
-  VirtualPeriodicMeanModel,          
-  VirtualPeriodicModel,              
-  VirtualPeriodicMonicFilter,        
-  VirtualPeriodicStationaryModel,    
-  VirtualPeriodicWhiteNoiseModel,    
-  zoo,                               
-  zooreg                            
+  VirtualPeriodicAutocovariances,
+  VirtualPeriodicFilterModel,
+  VirtualPeriodicMaModel,
+  VirtualPeriodicMeanModel,
+  VirtualPeriodicModel,
+  VirtualPeriodicMonicFilter,
+  VirtualPeriodicStationaryModel,
+  VirtualPeriodicWhiteNoiseModel,
+  zoo,
+  zooreg,
+
+  SubsetPM
 )
 
 
@@ -185,7 +234,6 @@ export(
     # , pc.ccf
     # , pc.cconesidedsum
     # , pc.ccsum
-    # , pc.center
 
     # , pc.est.arma
     # , pc.est.arma.0
@@ -205,7 +253,6 @@ export(
     , pcarma_acvf_lazy
     , pcarma_h_lazy
     , maxLag # pc.maxlag
-    # , pc.mean
     , pcarma_prepare
     , pcarma_tovec
     , pcarma_unvec
@@ -219,7 +266,8 @@ export(
     # , pc.printarmapqelem
     , sim_pwn # 2016-03-29 was: pc.rand
     # 09/02/2014 , pc.read.franses96
-    , pc.sdfactor
+    , pc.sdfactor # deprecated
+    , pc_sdfactor
     , sim_pc # 2016-03-29 was: pc.sim
     , pwn_McLeodLjungBox_test # pc.test.LjungBox
     , periodic_acf1_test #pc.test.periodicity
@@ -238,7 +286,6 @@ export(
 
     # , perModel
     , permodelmf
-  , ptildeorders # deprecated
   , pdSafeParOrder
     , sim_parAcvf
     ####, rsum
@@ -313,4 +360,60 @@ export(
   , "modelCycle<-"
   , meancovmat
   , meanvarcheck
+
+  , Cyclic
+    ## these don't get registered without exporting                   
+    ## something related to base:as.Date being masked by zoo::as.Date?
+    ##    I am importing zoo and zoo::as.Date, hence calls from inside the package use that.
+    ##    However, if I don't reexport zoo::as.Date, then calls outside the package will be to    ##    base::as.Date.
+    ## So, reexport zoo::as.Date().    
+    ## TODO: selectively import from zoo?
+  , as.Date
+  , as.Date.Cyclic            
+  , as.Date.PeriodicTimeSeries
+    
+  , as_Pctime
+  , date     # lubridate::date
+  , "date<-" # lubridate::`date<-`
+  , date.Cyclic
+  , Pctime
+  , "[.Pctime"
+  , "[[.Pctime"
+
+
+  ## reexports from sarima
+ ,  nSeasons
+ ,  
+    filterCoef,
+    filterOrder,
+    filterPoly,
+    filterPolyCoef,
+
+
+    autocovariances,
+    autocorrelations,
+    partialAutocovariances,
+    partialAutocorrelations,
+    partialVariances,
+    backwardPartialVariances,
+    partialCoefficients,
+    backwardPartialCoefficients,
+
+    sigmaSq,
+    modelCenter,
+    modelIntercept,
+    nUnitRoots,
+    isStationaryModel,
+
+    modelOrder,
+    modelPoly,
+    modelPolyCoef,
+
+    modelCoef
+
+, fit_trigPAR_optim
+, pcts_exdata
+, na.trim # from zoo
+, pcMean
+, pcApply  
 )
