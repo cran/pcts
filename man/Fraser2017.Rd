@@ -22,7 +22,7 @@ data("Fraser2017")
   documented December 1991). At the time of writing this package
   \code{"pear"} is archived on CRAN, which is the main reason to include
   the dataset (with the added benefit of almost 30 years of additional
-  data.
+  data).
  
 
 }

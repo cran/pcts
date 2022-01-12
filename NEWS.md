@@ -1,12 +1,20 @@
-# Version 0.15.0
+# Version 0.15.2
+
+- now the `plot` methods for time series objects are exported, so they work again
+  (they had stopped working due to changes in R 4.0).
+
+- corrections of typo's and other minor tweaks in the documentation.
+
+
+# Version 0.15
 
 ## User visible changes
 
 - vastly improved support for dates/times. 
 
-- new generic `pcIntercept`
+- new generic `pcIntercept`.
 
-- update methods for `pcMean`
+- updated methods for `pcMean`.
 
 - `pc_sdfactor` now returns a matrix also in the case `maxlag = 0` (as
   documented).
@@ -16,14 +24,16 @@
 
 - new function `pc_mean`.
 
+- new dataset `Fraser2017`.
+
 - `pc_sum` gets argument `na.rm` and a more efficient implementation.
 
 - new methods for `zoo::na.trim`.
 
 - new subset PAR models with trigonometric parameterisation.
 
-- use some datetime functions from `lubridate`, reexport `lubridate::date`and
-  `lubridate::date<-`.
+- now using some datetime functions from `lubridate. Also reexporting
+  `lubridate::date`and `lubridate::date<-`.
 
 - first draft of a data vignette.
 
@@ -45,11 +55,10 @@
 
 - fixed use of suggested package to comply with CRAN policies
 
-- in `test_piar()`, now p-balues are said to NA if package `fUnitRoots` is not
-  available. Previously an error was thrown.
+- in `test_piar()`, now p-values are set to `NA` if package `fUnitRoots` is not
+  available and a message is issued. Previously an error was thrown.
 
-
-- removed package `pear` from dependencies
+- removed package `pear` from dependencies.
 
 - consolidated the dependencies.
 
@@ -67,13 +76,13 @@
 
 - fixed a bug revealed by changes in R-devel circa start of February 2020. It
   was related to a change in variable names for some interactions produced by
-  `lm()`, see [this R-devel question](https://r.789695.n4.nabble.com/changed-names-from-lm-in-R-devel-td4761450.html). 
+  `lm()`, see this R-devel question: https://r.789695.n4.nabble.com/changed-names-from-lm-in-R-devel-td4761450.html). 
 
 - edited `README.md` to reflect the CRAN release of the package, since it
   contained some text that was meant for the pre-CRAN Github version only.
 
 
-# Version 0.14-3 (CRAN)
+# Version 0.14-3 (first CRAN version)
 
 - now using `exportClass` to export classes rather than `exportClassPattern`
   with a lazy regexp.
@@ -101,8 +110,8 @@
 
 # Version 0.13-0
 
-- replaced ~setIs~ introduced in v0.12-0 for `"PeriodicAutocovariances"` and
-  related classes with direct inheritance.
+- replaced `setIs`, introduced in v0.12-0 for `"PeriodicAutocovariances"` and
+  related classes, with direct inheritance.
   
 - numerous other changes, consolidations and bug-fixes. In particlar, updated
   periodic integrated and seasonally integrated models, including `fitPM()`. 

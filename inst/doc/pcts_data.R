@@ -15,8 +15,7 @@ ap <- pcts(AirPassengers)
 ap
 
 ## -----------------------------------------------------------------------------
-window(ap, start = c(1952, 3))
-window(ap, end = c(1959, 2))
+window(ap, start = c(1952, 3), end = c(1959, 2))
 
 ## -----------------------------------------------------------------------------
 window(ap, seasons = 7:9)
@@ -24,8 +23,8 @@ window(ap, seasons = 7:9)
 ## -----------------------------------------------------------------------------
 data(dataFranses1996)
 class(dataFranses1996)
-colnames(dataFranses1996)
 dim(dataFranses1996) # c(148, 19)
+colnames(dataFranses1996)
 
 ## -----------------------------------------------------------------------------
 pcfr <- pcts(dataFranses1996)

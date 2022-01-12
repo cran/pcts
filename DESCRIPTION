@@ -8,8 +8,8 @@ Description: Classes and methods for modelling and simulation of
     methods including Boshnakov & Iqelan (2009)
     <doi:10.1111/j.1467-9892.2009.00617.x>, Boshnakov (1996)
     <doi:10.1111/j.1467-9892.1996.tb00281.x>.
-Version: 0.15
-Date: 2020-10-31
+Version: 0.15.2
+Date: 2022-01-12
 Author: Georgi N. Boshnakov
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Depends: R (>= 3.5.0)
@@ -32,6 +32,6 @@ Collate: utils.R test1.r PeriodicCalc.R pcstat.R pc00smallutil.r
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2020-10-31 11:44:27 UTC; georgi
+Packaged: 2022-01-12 12:18:38 UTC; georgi
 Repository: CRAN
-Date/Publication: 2020-10-31 13:40:02 UTC
+Date/Publication: 2022-01-12 13:22:42 UTC

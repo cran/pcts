@@ -63,9 +63,10 @@ fitPM( model, x, ...)
     Fits a periodic model according to the specification given by
     \code{model}.
 
-    Currently this method uses \code{mC.ss} to set up the optimisation
-    environment and then calls one of the optimisation functions in that
-    environment as specified by argument \code{optim.method}, see below.
+    Currently this method uses \code{\link{mC.ss}} to set up the
+    optimisation environment and then calls one of the optimisation
+    functions in that environment as specified by argument
+    \code{optim.method}, see below.
 
     Additional arguments may be specified to control the optimisation.
 
@@ -102,19 +103,9 @@ fitPM( model, x, ...)
 }
 }}}
 \references{ (todo: to be completed properly later)
-  % bibentry: HipelMcLeod
-Hipel KW and McLeod AI (1994).
-\emph{Time series modelling of water resources and environmental systems},  series Developments in water science; 45.
-London; Amsterdam: Elsevier.
-% end:bibentry:  HipelMcLeod
-  % bibentry: boshnakov2009gen
-Boshnakov GN and Iqelan BM (2009).
-``Generation of time series models with given spectral
-properties.''
-\emph{J. Time Series Anal.}, \bold{30}(3), pp. 349--368.
-ISSN 0143-9782, \url{http://dx.doi.org/10.1111/j.1467-9892.2009.00617.x}.
-% end:bibentry:  boshnakov2009gen
-
+  \insertRef{HipelMcLeod}{pcts}
+  
+  \insertRef{boshnakov2009gen}{pcts}
 }
 \author{Georgi N. Boshnakov}
 % \note{
@@ -194,16 +185,16 @@ fit1@sigma2
 
 ## both give the matrix Sigma for the "I" form
 identical(
-    vs$Phi0inv %*% diag(fit1@sigma2) %*% t(vs$Phi0inv)
+    vs$Phi0inv \%*\% diag(fit1@sigma2) \%*\% t(vs$Phi0inv)
     ,
-    tmp$Uform$U0inv %*% diag(tmp$Uform$Sigma)  %*% t(tmp$Uform$U0inv)
+    tmp$Uform$U0inv \%*\% diag(tmp$Uform$Sigma)  \%*\% t(tmp$Uform$U0inv)
 ) # TRUE
 
 ## no, this is a different matrix
 var1_mat <- cbind(vs$Phi0, # identity matrix
                   - vs$Phi) # drop trailing zero columns?
 var1_mat <- mcompanion::mCompanion(var1_mat)
-var1_Sigma <- vs$Phi0inv %*% diag(fit1@sigma2) %*% t(vs$Phi0inv)
+var1_Sigma <- vs$Phi0inv \%*\% diag(fit1@sigma2) \%*\% t(vs$Phi0inv)
 abs(eigen(diag(nrow(var1_mat)) - var1_mat)$values)
 }
 \keyword{pcts}
