@@ -40,7 +40,11 @@ pctipi <- window(pctipi, start = availStart(pctipi), end = availEnd(pctipi))
 plot(pctipi)
 
 ## -----------------------------------------------------------------------------
+boxplot(pctipi)
+
+## -----------------------------------------------------------------------------
 pcfr2to3 <- pcfr[2:3]
+colnames(pcfr2to3) <- substr(colnames(pcfr2to3), 1, 5)
 plot(pcfr2to3)
 
 ## -----------------------------------------------------------------------------

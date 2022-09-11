@@ -52,15 +52,24 @@ pcts(x, nseasons, start, \dots, keep = FALSE)
   \code{pcts} creates periodic time series objects inheriting from
   \code{"PeriodicTimeSeries"}. The particular class depends on arguments
   \code{x} and, in some cases, \code{keep}.  The idea is that in normal
-  use the user does not care about the particular class.
+  use the user does not care about the particular class. See section
+  \sQuote{Methods} for further details.
+
+  Familiar functions from base-R work with the objects created by
+  \code{pcts}. The help page \code{\link{window}} describes such methods
+  and gives examples.
 
   There are also methods for \code{as} for conversion to and from the
   time series classes defined in package \pkg{pcts}.
 
+
 }
 \value{
-  an object inheriting from \code{"PeriodicTimeSeries"},
-  the defaults are \code{"PeriodicTS"} and \code{"PeriodicMTS"}
+  
+  an object inheriting from \code{"PeriodicTimeSeries"}, the defaults
+  are \code{"PeriodicTS"} for univariate and \code{"PeriodicMTS"} and
+  for multivariate time series.
+
 }
 %\references{
 %%% ~put references to the literature/web site here ~
@@ -95,7 +104,9 @@ pcts(x, nseasons, start, \dots, keep = FALSE)
 
   }
   \item{\code{signature(x = "data.frame", nseasons = "ANY")}}{
-    Currently this just calls \code{pcts(as.data.frame(x), nseasons, ...)}. 
+    Currently this just converts \code{x} to matrix and calls
+    \code{pcts} recursively. See the methods with \code{x = "matrix"} in
+    the signature.
   }
   
   \item{\code{signature(x = "ts", nseasons = "missing")}}{ }
@@ -104,7 +115,7 @@ pcts(x, nseasons, start, \dots, keep = FALSE)
     If \code{keep = TRUE} creates an object of class
     \code{"PeriodicTS_ts"}, otherwise the result is from
     \code{"PeriodicTS"}. The number of seasons is taken from the
-    \code{"ts"} object. 
+    \code{"mts"} object. 
 
   }
 
@@ -119,21 +130,32 @@ pcts(x, nseasons, start, \dots, keep = FALSE)
   }
 
   \item{\code{signature(x = "xtsORzoo", nseasons = "missing")}}{
-    \code{x} needs to a regular time series, possibly with missing
+    \code{x} needs to be a regular time series, possibly with missing
     values for some times (technically, \code{zoo::is.regular(x)} should
     give TRUE). For daily time series, the cycle is taken to be day of
     week or a subcycle of it, most commonly Monday-Friday.
-
-    The implementation is incomplete but for daily data should work as
-    described.
+    The implementation of this method is incomplete but for daily data
+    should work as described.
     
   }
 }}
 
 \seealso{
   \code{\linkS4class{PeriodicTS}},
+  \code{\linkS4class{PeriodicMTS}}, the two main periodic time series
+  classes in the package;
 
-  \code{\link{dataFranses1996}} for further examples
+  \code{\link{dataFranses1996}}, \code{\link{Fraser2017}},
+  \code{\link{four_stocks_since2016_01_01}} for further examples;
+
+  \code{\link{window}} for extraction of subsets;
+
+  \code{\link{pcApply}} for applying a function to each season;
+  
+  \code{\link{Vec}},
+  \code{\link{tsVec}},
+  \code{\link{pcMatrix}} for extraction of the core data
+  
 }
 \examples{
 ## convert a ts object, no need for further info

@@ -13,7 +13,18 @@ test_that("test fitPM()",
     expect_error(fitPM(c(3,2,2,2), mx), "multivariate PAR fitting not implemented yet")
 
     proba1 <- fitPM(c(3, 2, 2, 2), as.numeric(mx))
-    expect_equal_to_reference(proba1, "proba1.RDS")
+
+    ## in package Matrix v1.5.0 slot asyCov is "dsTMatrix" (i.e. sparse symmetric), while in
+    ## previous version of Matrix it was "dgTMatrix" (sparse but not symmetric) causing check
+    ## below to fail with 1.5.0.
+    ##
+    ##  I recomputed the value saved in "proba1.RDS" with v1.5.0 so that it works with it and
+    ##  for now skip the check with older versions of Matrix.
+    if(packageVersion("Matrix") >= '1.5.0')
+        expect_equal_to_reference(proba1, "proba1.RDS")
+    ## else
+    ##      TODO: modify proba1@asyCov to be of class and do the check as above
+
     expect_output(show(proba1))
     expect_output(summary(proba1))
 
