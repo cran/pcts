@@ -1,6 +1,6 @@
-162afdb4da2de1be3a25df16ee592cd6 *DESCRIPTION
+a536bc0d407852cce8f219cae6d7878f *DESCRIPTION
 74b888f9821b27af5c6c886c2081deee *NAMESPACE
-25563bfaeaef09b9a0b9d070e72a5e89 *NEWS.md
+1c4214b50ec55a628485e1032ebcfe26 *NEWS.md
 bc42d3e72358592596c282384bd77a70 *R/FittedPeriodicModels.R
 f15c1d3643d73aca42f29e17e9239266 *R/PeriodicCalc.R
 cf97f12131ca0a2770ee53b9be71931c *R/PeriodicClasses.R
@@ -27,7 +27,7 @@ fa031d89d18fa5c5a14f623e2872ee23 *R/pcls.R
 71124f516b44be3273fa7985b61be465 *R/trig.R
 a97e7015a4fedfd99f868e6843fb0001 *R/utils.R
 25ee507196c7b8083716b9f2d1dadea9 *README.md
-657a766a1f66e898e439bb8c01c346f4 *build/partial.rdb
+8f70beca3507ad02d03160e57b2382fa *build/partial.rdb
 b54bb09687e1b86ac6f83f4fabdae3ce *build/vignette.rds
 cfe4f6e8e9b72c52847540c24768211d *data/Fraser2017.rda
 8ed20f1a3e4e4bc3be765370ad05cf13 *data/dataFranses1996.rda
@@ -37,7 +37,7 @@ c9853693282e1a1e4337f62a23357f97 *data/ex1f.R
 27f68ea59377b2a815d2397f6f1cc100 *inst/auto/REFERENCES.el
 49656ac1856293b54e56e1ea2125766e *inst/doc/pcts_data.R
 e27eb6ae8697f378cbbb256e8dca8de0 *inst/doc/pcts_data.Rmd
-2625308d1d07c89005c4f86562d94400 *inst/doc/pcts_data.html
+1a880fb4b8b0e85b9c4239dcf3cc7c6a *inst/doc/pcts_data.html
 0810631ca030f6989d991e180041d155 *man/BareCycle-class.Rd
 94cb24e63855c0cafe17f73dd19aad22 *man/BasicCycle-class.Rd
 f16b897ec2e871ed1186265e00eb74aa *man/BuiltinCycle-class.Rd

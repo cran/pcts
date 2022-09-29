@@ -1,3 +1,10 @@
+# Version 0.15.4 (CRAN)
+
+- require Matrix (>= 1.5-0) to avoid problems for users who have an earlier
+  version of Matrix on their device (thanks to Mikael Jagan for checking for not
+  strict enough dependency on Matrix and alerting us).
+
+
 # Version 0.15.3 (CRAN)
 
 - in pwn_McLeodLjungBox_test, a denominator contained, wrongly, a square root
