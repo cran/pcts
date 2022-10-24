@@ -1,6 +1,9 @@
 \name{dataFranses1996}
 \alias{dataFranses1996}
 \docType{data}
+
+\concept{periodic time series data}
+
 \title{Example data from Franses (1996)}
 \description{A multivariate time series containing the data used
   in examples by Franses (1996).}

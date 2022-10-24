@@ -1,6 +1,11 @@
 \name{pcts-package}
 \alias{pcts-package}
 \docType{package}
+
+\concept{periodic time series data}
+\concept{periodic data}
+\concept{periodic correlation}
+
 \title{
   \Sexpr[stage=build,results=hide]{pd <- packageDescription("pcts")}
   \Sexpr[stage=build,results=hide]{lb <- library(help="pcts", character.only=TRUE)}
@@ -308,7 +313,6 @@ Maintainer: \Sexpr[stage=build]{pd$Maintainer}
 }
 % ~~ Optionally other standard keywords, one per line, from file KEYWORDS in ~~
 % ~~ the R documentation directory ~~
-\keyword{ package }
 \seealso{
   \code{\link{pcts}},
   
@@ -383,3 +387,5 @@ plot(pcfr2) # the points mark the first season in each cycle
 boxplot(pcfr2)
 monthplot(pcfr2)
 }
+\keyword{package}
+\keyword{ts}

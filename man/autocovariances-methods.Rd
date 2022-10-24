@@ -38,6 +38,14 @@
 %% \alias{autocovariances,VirtualArmaModel,ANY-method}
 %% \alias{autocovariances,VirtualAutocovariances,ANY-method}
 
+\concept{periodic correlation}
+\concept{periodic autocovariances}
+\concept{periodic partial autocovariances}
+
+\keyword{acf}
+\keyword{pacf}
+
+
 \title{Compute autocovariances and periodic autocovariances}
 \description{
 
@@ -96,5 +104,4 @@ autocovariances(as.numeric(AirPassengers), maxlag = 10, nseasons = 12)
 }
 \keyword{methods}
 \keyword{ts}
-\keyword{acf}
 

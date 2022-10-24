@@ -1,8 +1,15 @@
+# Version 0.15.5 (CRAN)
+
+- fixed for upcoming Matrix 1.5.2. Dropped the test for equality which depends
+  on inner workings of 'Matrix' (thanks to Mikael Jagan again for looking into
+  the issue).
+
+
 # Version 0.15.4 (CRAN)
 
 - require Matrix (>= 1.5-0) to avoid problems for users who have an earlier
   version of Matrix on their device (thanks to Mikael Jagan for checking for not
-  strict enough dependency on Matrix and alerting us).
+  strict enough dependency on Matrix and alerting me).
 
 
 # Version 0.15.3 (CRAN)

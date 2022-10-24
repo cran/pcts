@@ -2,6 +2,9 @@
 \alias{availStart}
 \alias{availEnd}
 
+\concept{periodic time series}
+
+
 \title{Time of first or last non-NA value}
 \description{Time of first or last non-NA value.}
 \usage{
@@ -133,4 +136,4 @@ head( na.trim(cguk, sides = "left", is.na = "all") )
 tail( na.trim(cguk, sides = "right", is.na = "all") )
 }
 \keyword{ts}
-% use one of  RShowDoc("KEYWORDS")
+\keyword{chron}

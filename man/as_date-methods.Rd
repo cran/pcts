@@ -32,3 +32,4 @@
 }
 }}}
 \keyword{methods}
+\keyword{chron}

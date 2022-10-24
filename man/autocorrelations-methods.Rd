@@ -9,6 +9,14 @@
 \alias{autocorrelations,VirtualPeriodicAutocovariances,ANY,missing-method}
 \alias{autocorrelations,VirtualPeriodicAutocovarianceModel,ANY,missing-method}
 
+\concept{periodic correlation}
+\concept{periodic autocorrelations}
+\concept{periodic partial autocorrelations}
+
+\keyword{acf}
+\keyword{pacf}
+
+
 \title{Compute autocorrelations and periodic autocorrelations}
 \description{
 
@@ -61,4 +69,3 @@ autocorrelations(as.numeric(AirPassengers), maxlag = 10, nseasons = 12)
 }
 \keyword{methods}
 \keyword{ts}
-\keyword{acf}

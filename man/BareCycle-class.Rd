@@ -3,6 +3,9 @@
 \docType{class}
 \alias{BareCycle-class}
 
+\concept{periodic time series}
+\concept{periodic time}
+
 \title{Class BareCycle}
 \description{Class BareCycle.}
 \section{Objects from the Class}{
@@ -77,3 +80,4 @@ cycle[3]
 BuiltinCycle(5)
 }
 \keyword{classes}
+\keyword{chron}
