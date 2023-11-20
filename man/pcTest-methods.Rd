@@ -100,13 +100,6 @@ cu <- window(cu, start = availStart(cu), end = availEnd(cu))
 
 test_piar(cu, 4, 1, sintercept = TRUE)
 pcTest(cu, "piar", 4, 1, sintercept = TRUE)
-
-if(require(partsm)){
-# same with LRurpar.test from partsm
-LRurpar.test(cu, list(regular = c(0,0,0), seasonal = c(1,0), regvar = 0), p = 1)
 }
-}
-% Add one or more standard keywords, see file 'KEYWORDS' in the
-% R documentation directory.
 \keyword{methods}
 \keyword{pcstat}

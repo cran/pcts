@@ -1039,12 +1039,6 @@ as_Pctime.Cyclic <- function(x, ...){
     Pctime(x@pcstart, x@cycle)
 }
 
-as_Pctime.PeriodicTimeSeries <- function(x, ...){ 
-    ## TODO: this needs changing, probably as.Date should use as_Pctime instead.
-    res <- as_datetime(x) # as.Date(x)
-    Pctime(res, x@cycle)
-}
-
 frequency.Cyclic <- function(x, ...) nSeasons(x)
 deltat.Cyclic    <- function(x, ...) 1 / nSeasons(x)
 cycle.Cyclic     <- function(x, ...){

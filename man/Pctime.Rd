@@ -28,8 +28,6 @@ as_Pctime(x, \dots)
 \method{[[}{Pctime}(x, \dots, drop = TRUE)
 
 \method{as_Pctime}{Cyclic}(x, \dots)
-
-\method{as_Pctime}{PeriodicTimeSeries}(x, \dots)
 }
 \arguments{
   \item{x}{

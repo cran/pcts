@@ -8,7 +8,7 @@ Description: Classes and methods for modelling and simulation of
     methods including Boshnakov & Iqelan (2009)
     <doi:10.1111/j.1467-9892.2009.00617.x>, Boshnakov (1996)
     <doi:10.1111/j.1467-9892.1996.tb00281.x>.
-Version: 0.15.5
+Version: 0.15.6
 Authors@R: person(given = c("Georgi", "N."), family = "Boshnakov",
                   role = c("aut", "cre"), 
                   email = "georgi.boshnakov@manchester.ac.uk")
@@ -16,7 +16,7 @@ Depends: R (>= 3.5.0)
 Imports: methods, sarima, Matrix (>= 1.5-0), BB, PolynomF (>= 2.0-2),
         gbutils, zoo, xts, stats4, lagged (>= 0.2.2), mcompanion,
         Rdpack (>= 0.9), lubridate
-Suggests: testthat, fUnitRoots, partsm, knitr, rmarkdown
+Suggests: testthat, fUnitRoots, knitr, rmarkdown
 RdMacros: Rdpack
 LazyData: yes
 URL: https://geobosh.github.io/pcts/ (doc)
@@ -32,8 +32,8 @@ Collate: utils.R test1.r PeriodicCalc.R pcstat.R pc00smallutil.r
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2022-10-24 06:16:43 UTC; georgi
+Packaged: 2023-11-20 18:27:37 UTC; georgi
 Author: Georgi N. Boshnakov [aut, cre]
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2022-10-24 07:12:36 UTC
+Date/Publication: 2023-11-20 19:00:02 UTC

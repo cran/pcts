@@ -1,3 +1,8 @@
+# Version 0.15.6 (CRAN)
+
+- fixed a couple of uses of '$' for math equations in Rd files.
+
+
 # Version 0.15.5 (CRAN)
 
 - fixed for upcoming Matrix 1.5.2. Dropped the test for equality which depends

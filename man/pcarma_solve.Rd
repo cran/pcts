@@ -138,8 +138,8 @@ pcarma_h(h, na = NA)
   \subsection{for pcarma_h_lazy}{
 
     a function, say \code{h}. In calls to \code{h}, if both arguments
-    are scalars \code{h(t,i)} returns $h_{t,i}$. If at least one of the
-    arguments is a vector a matrix of values of $h$ is returned.
+    are scalars \code{h(t,i)} returns \eqn{h_{t,i}}. If at least one of the
+    arguments is a vector a matrix of values of \eqn{h} is returned.
 
   }
 
@@ -189,8 +189,8 @@ pcarma_h(h, na = NA)
   \subsection{for pcarma_h}{
 
     a function, say \code{h}. In calls to \code{h}, if both arguments
-    are scalars \code{h(t,i)} returns $h_{t,i}$. If at least one of the
-    arguments is a vector a matrix of values of $h$ is returned.
+    are scalars \code{h(t,i)} returns \eqn{h_{t,i}}. If at least one of the
+    arguments is a vector a matrix of values of \eqn{h} is returned.
     Analogous to \code{pcarma_h_lazy}.
 
   }

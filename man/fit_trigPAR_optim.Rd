@@ -52,7 +52,7 @@ fit_trigPAR_optim(x, order, nseasons, seasonof1st = 1, maxiter = 200,
   Putting together the intercepts and the PAR parameters may not be very
   useful for parsimonious trigonometric parameterisation, so to have a
   separate set of coefficients for the intercepts set
-  attribute{"merge"} of \code{sintercept} to \code{FALSE}.
+  attribute \code{"merge"} of \code{sintercept} to \code{FALSE}.
   
 }
 \value{

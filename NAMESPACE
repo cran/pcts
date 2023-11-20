@@ -35,7 +35,6 @@ S3method(date, PeriodicTimeSeries)
 
 
 S3method(as_Pctime, Cyclic)
-## S3method(as_Pctime, PeriodicTimeSeries)
 
 S3method(format, Pctime)
 S3method(str, Pctime)
