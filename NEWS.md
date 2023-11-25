@@ -1,3 +1,9 @@
+# Version 0.15.7 (CRAN)
+
+- require mcompanion (>= 0.5.8), see the note for that version in mcompanion's
+  NEWS.md file (or click NEWS on its CRAN page).
+
+
 # Version 0.15.6 (CRAN)
 
 - fixed a couple of uses of '$' for math equations in Rd files.
