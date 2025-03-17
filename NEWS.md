@@ -1,29 +1,35 @@
-# Version 0.15.7 (CRAN)
+# Version 0.15.7.9000
+
+- provided missing package anchors in Rd \link{} targets to other packages.
+
+
+
+# Version 0.15.7
 
 - require mcompanion (>= 0.5.8), see the note for that version in mcompanion's
   NEWS.md file (or click NEWS on its CRAN page).
 
 
-# Version 0.15.6 (CRAN)
+# Version 0.15.6
 
-- fixed a couple of uses of '$' for math equations in Rd files.
+- fixed a couple of wrong uses of '$' for math equations in Rd files.
 
 
-# Version 0.15.5 (CRAN)
+# Version 0.15.5
 
 - fixed for upcoming Matrix 1.5.2. Dropped the test for equality which depends
   on inner workings of 'Matrix' (thanks to Mikael Jagan again for looking into
   the issue).
 
 
-# Version 0.15.4 (CRAN)
+# Version 0.15.4
 
 - require Matrix (>= 1.5-0) to avoid problems for users who have an earlier
   version of Matrix on their device (thanks to Mikael Jagan for checking for not
   strict enough dependency on Matrix and alerting me).
 
 
-# Version 0.15.3 (CRAN)
+# Version 0.15.3
 
 - in pwn_McLeodLjungBox_test, a denominator contained, wrongly, a square root
   (reported by Yueyun Zhu).
@@ -33,7 +39,7 @@
   'dsTMatrix' whereas previously it was 'dgTMatrix' for the object in that test.
   
 
-# Version 0.15.2 (CRAN)
+# Version 0.15.2
 
 - now the `plot` methods for time series objects are exported, so they work again
   (they had stopped working due to changes in R 4.0).
@@ -41,7 +47,7 @@
 - corrections of typo's and other minor tweaks in the documentation.
 
 
-# Version 0.15 (CRAN)
+# Version 0.15
 
 ## User visible changes
 
@@ -107,7 +113,7 @@
 - extensive testing and bug fixing.
 
 
-# Version 0.14-4 (CRAN)
+# Version 0.14-4
 
 - fixed a bug revealed by changes in R-devel circa start of February 2020. It
   was related to a change in variable names for some interactions produced by
@@ -123,27 +129,27 @@
   with a lazy regexp.
 
 
-# Version 0.14-2
+# Version 0.14-2 (not on CRAN)
 
 - added an example for `pclspiar`
 
 - edited DESCRIPTION to comply with CRAN policies.
 
 
-# Version 0.14-1
+# Version 0.14-1 (not on CRAN)
 
 - dropped some comparisons with "pear" since a call in "test-acf.R"
   failed.
 
 
-# Version 0.14-0
+# Version 0.14-0 (not on CRAN)
 
 - removed deprecated functions `mCpar` and `sim_arAcf`.
 
 - prepared for release.
 
 
-# Version 0.13-0
+# Version 0.13-0 (not on CRAN)
 
 - replaced `setIs`, introduced in v0.12-0 for `"PeriodicAutocovariances"` and
   related classes, with direct inheritance.
@@ -152,7 +158,7 @@
   periodic integrated and seasonally integrated models, including `fitPM()`. 
 
 
-# Version 0.12-0
+# Version 0.12-0 (not on CRAN)
 
 - now require 'lagged (>= 2.2)' (for the new `"slMatrix"` method for `[[`).
 
@@ -179,7 +185,7 @@
   now throw an error if `x` is a matrix with more than one column (in future
   could consider fitting multivariate PAR). 
 
-# Version 0.11-0
+# Version 0.11-0 (not on CRAN)
 
 - wrapping up v0.11-0 before starting changes to the model classes and related
   functionality. The reference manual and the rendered org files printed on 13
@@ -200,7 +206,7 @@
 - now class `"BultinCycle"` is virtual.
 
 
-# Version 0.10-0
+# Version 0.10-0 (not on CRAN)
 
 - consolidated time series anc cycle classes.
 
@@ -208,7 +214,7 @@
   `stats::boxplot()` `.
 
 
-# Version 0.9-4
+# Version 0.9-4 (not on CRAN)
 
 - first version developed under git. I created the git repo starting with the
   earliest available version and adding all available versions one by one (one
@@ -226,14 +232,14 @@
 - `R CMD check --as-cran` passes completely.
 
 
-# Version 0.9-2 - 0.9.3
+# Version 0.9-2 - 0.9.3 (not on CRAN)
 
 - consolidated the autocovariance classes and acf computations.
 
 - some bug fixes and other improvements.
 
 
-# Version 0.9-1
+# Version 0.9-1 (not on CRAN)
 
 - moved 'slMatrix' class and function to package 'lagged'.
 
@@ -249,7 +255,7 @@
 
 
 
-# Version 0.9-0
+# Version 0.9-0 (not on CRAN)
 
 - moving packages 'methods', 'Matrix', 'mcompanion' from Depends to Imports
   ('sarima' stays in Depends, at least for now; maybe this is its natural
@@ -261,23 +267,23 @@
   for classes "PeriodicBJFilter" and "PeriodicSPFilter".
 
 
-# Version 0.8-1
+# Version 0.8-1 (not on CRAN)
 
 - changed some classes while coordinating 'pcts' with 'sarima'.
 
 
-# Version 0.8-0
+# Version 0.8-0 (not on CRAN)
 
 - consolidating after moving the stationary stuff to 'sarima' and 'lagged'
   (and moving out more).
 
 
-# Version 0.7-2
+# Version 0.7-2 (not on CRAN)
 
 - Redeveloped the classes for fitted models (there were few before).
 
 
-# Version 0.7-1
+# Version 0.7-1 (not on CRAN)
 
 - Package working again; `R CMD check` completes with no WARNINGs and NOTEs.
   (With `--as-cran` gives two NOTEs: 
@@ -290,14 +296,14 @@
   in 0.7-0).
 
 
-# Version 0.7-0
+# Version 0.7-0 (not on CRAN)
 
 - This version is left in a non-working state.
 - Discarded this revamp, too convoluted.
 - Total revamp of the classes.
 
 
-# Version 0.6-x
+# Version 0.6-x (not on CRAN)
 
 - The new classes are too cumbersome, abandon them.
   Unfinished, the last version in the series does not work properly.
@@ -312,7 +318,7 @@
 - changed significantly the cycle classses.
 - removed entirely replace method for `nSeasons` since it doesn't make sense.
 
-# Version 0.5-x
+# Version 0.5-x (not on CRAN)
 
 - removed old classes made obsolete by the revamped ones.
 - removed dependency on pctsData.
@@ -321,20 +327,20 @@
   but passes `R CMD check` without any warnings/notes.
 
 
-# Version 0.4-2
+# Version 0.4-2 (not on CRAN)
 
 - the new classes for periodic models are more complete and consolidated.
 - renamed `pc.maxlag()` to `maxLag()`.
 - numerous other changes and additions.
 
 
-# Version 0.4-1
+# Version 0.4-1 (not on CRAN)
 
 - `pc.nseasons()` is now obsolete - it is no longer imported from `pcData` and
   is defined to call `nSeasons()`.
 
 
-# Version 0.4-0
+# Version 0.4-0 (not on CRAN)
 
 - partial consolidation of "slMatrix" - the code was from 2006-2007 with
   occasional patches.
@@ -353,13 +359,13 @@
 - changing to new version before making changes to eliminate package `pcData`.
 
 
-# Version 0.3-4
+# Version 0.3-4 (not on CRAN)
 
 - Don't know if there are changes after 0.3-3 but packing before synchronising
   with the changes in package 'mcompanion' 0.2-11 to 0.3-1.
 
 
-# Version 0.3-3
+# Version 0.3-3 (not on CRAN)
 
 - `pclsdf` was giving warning about length of residuals non-multiple of number
   of seasons, when computing innovation variances.
@@ -367,7 +373,7 @@
 - formula construction in `pclsdf` somewhat cleaned up.
 
 
-# Version 0.3-2
+# Version 0.3-2 (not on CRAN)
 
 - there are now classes for fitted models.
 
@@ -378,7 +384,7 @@
 - matcovlist now has argument "result" and can return a matrix.
 
 
-# Version 0.3-0
+# Version 0.3-0 (not on CRAN)
 
 - Create a new package `pctsData` and move some stuff there to reduce the clutter
   in "pcts". For now make "pcts" depend on "pctsData" but the idea is eventually
@@ -390,7 +396,7 @@
   vectors.  Partially implemented. Works with version 0.2-6 of "mcompanion".
 
 
-# Version 0.2-4
+# Version 0.2-4 (not on CRAN)
 
 - new argument 'len.block' for `xx.ss`; corresponding changes in `mC.ss`.
 - `xx.ss` - more meaningful processing of initial values.
@@ -399,13 +405,13 @@
 - a few other changes in the documentation.
 
 
-# Version 0.2-3
+# Version 0.2-3 (not on CRAN)
 
 - Corrections and additions to `pcls.R`.
 - Do not import "pad" (it is now merged into "gbutils").
 
 
-# Version 0.2-2
+# Version 0.2-2 (not on CRAN)
 
 - retired `pc.armafilter` and `pc.filter` (long overdue). Existing calls to
   `pc.filter.arma` can simply be replaced by calls to `pc.filter.xarma`. Calls
@@ -414,7 +420,7 @@
   argument, while in `pc.armafilter` it was third.
 
 
-# Version 0.2-0
+# Version 0.2-0 (not on CRAN)
 
 - started updating the time series classes.
 
@@ -425,13 +431,13 @@
 - removed other bugs
 
 
-# Version 0.3-10
+# Version 0.3-10 (not on CRAN)
 
 - removed some experimental estimation functions whose place is not in this
   package.
 
 
-# Version 0.3-9
+# Version 0.3-9 (not on CRAN)
 
 - last version before starting to clean up and consolidate the package.
   A lot of stuff goes back to 2006-2007 and even 2003.

@@ -31,7 +31,7 @@ pcacfMat(parmodel)
 
 
   The season-lag form can be easily converted to other forms with the
-  powerful indexing operator, see  the examples and \code{\link{slMatrix-class}}.
+  powerful indexing operator, see  the examples and \code{\link[lagged]{slMatrix-class}}.
 
   \code{pcacfMat} is a convenience function for statistical
   inference. It creates a covariance matrix with dimension chosen
@@ -59,7 +59,7 @@ pcacfMat(parmodel)
 
 \seealso{
 %  \code{\link{PeriodicArModel-class}} for PAR models,
-  \code{\link{slMatrix-class}}
+  \code{\link[lagged]{slMatrix-class}}
 }
 \examples{
 x <- arima.sim(list(ar = 0.9), n = 1000)

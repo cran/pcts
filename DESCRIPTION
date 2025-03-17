@@ -8,10 +8,11 @@ Description: Classes and methods for modelling and simulation of
     methods including Boshnakov & Iqelan (2009)
     <doi:10.1111/j.1467-9892.2009.00617.x>, Boshnakov (1996)
     <doi:10.1111/j.1467-9892.1996.tb00281.x>.
-Version: 0.15.7
+Version: 0.15.8
 Authors@R: person(given = c("Georgi", "N."), family = "Boshnakov",
                   role = c("aut", "cre"), 
-                  email = "georgi.boshnakov@manchester.ac.uk")
+                  email = "georgi.boshnakov@manchester.ac.uk",
+		  comment = c(ORCID = "0000-0003-2839-346X"))
 Depends: R (>= 3.5.0), methods
 Imports: sarima, Matrix (>= 1.5-0), BB, PolynomF (>= 2.0-2), gbutils,
         zoo, xts, stats4, lagged (>= 0.2.2), mcompanion (>= 0.5.8),
@@ -32,8 +33,9 @@ Collate: utils.R test1.r PeriodicCalc.R pcstat.R pc00smallutil.r
 RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2023-11-25 09:04:03 UTC; georgi
+Packaged: 2025-03-17 09:33:01 UTC; georgi
 Author: Georgi N. Boshnakov [aut, cre]
+    (<https://orcid.org/0000-0003-2839-346X>)
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2023-11-25 11:30:02 UTC
+Date/Publication: 2025-03-17 11:00:02 UTC

@@ -21,11 +21,11 @@ Objects can be created by calls of the form \code{new("SamplePeriodicAutocovaria
 }
 \section{Extends}{
 Class \code{"\linkS4class{PeriodicAutocovariances}"}, directly.
-Class \code{"\linkS4class{Fitted}"}, directly.
+Class \code{"\link[sarima:Fitted-class]{Fitted}"}, directly.
 Class \code{"\linkS4class{ModelCycleSpec}"}, by class "PeriodicAutocovariances", distance 2.
-Class \code{"\linkS4class{FlexibleLagged}"}, by class "PeriodicAutocovariances", distance 2.
+Class \code{"\link[lagged:FlexibleLagged-class]{FlexibleLagged}"}, by class "PeriodicAutocovariances", distance 2.
 Class \code{"\linkS4class{VirtualPeriodicAutocovariances}"}, by class "PeriodicAutocovariances", distance 2.
-Class \code{"\linkS4class{Lagged}"}, by class "PeriodicAutocovariances", distance 3.
+Class \code{"\link[lagged:Lagged-class]{Lagged}"}, by class "PeriodicAutocovariances", distance 3.
 Class \code{"\linkS4class{VirtualPeriodicModel}"}, by class "PeriodicAutocovariances", distance 3.
 }
 \section{Methods}{

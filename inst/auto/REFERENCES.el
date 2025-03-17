@@ -22,5 +22,5 @@
     "Sophie2000par"
     "Pagano1978"
     "Rpackage2011pcme"))
- :bibtex)
+ '(or :bibtex :latex))
 

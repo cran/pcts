@@ -48,7 +48,7 @@ Class \code{"\linkS4class{array}"}, by class "matrix", distance 2.
 %        'numLike-class'
 %Class \code{"\linkS4class{mMatrix}"}, by class "matrix", distance 2.
 Class \code{"mMatrix"}, by class "matrix", distance 2.
-Class \code{"\linkS4class{optionalMatrix}"}, by class "matrix", distance 2.
+Class \code{"\link[mcompanion]{optionalMatrix-class}"}, by class "matrix", distance 2.
 Class \code{"\linkS4class{structure}"}, by class "matrix", distance 3.
 Class \code{"\linkS4class{vector}"}, by class "matrix", distance 4, with explicit coerce.
 }

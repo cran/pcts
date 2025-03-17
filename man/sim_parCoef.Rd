@@ -20,7 +20,7 @@ sim_parCoef(period, n.root, sigma2 = rep(1, period), ...)
 
   The order of the filter is set to \code{n.root} for each season.  Part
   of the spectral information may be specified with the \code{"..."}
-  arguments, see \code{\link{sim_pcfilter}} and \code{\link{sim_mc}} for
+  arguments, see \code{\link[mcompanion]{sim_pcfilter}} and \code{\link[mcompanion]{sim_mc}} for
   a discussion of this.
 }
 \value{
@@ -33,7 +33,7 @@ sim_parCoef(period, n.root, sigma2 = rep(1, period), ...)
   \insertRef{boshnakov2009gen}{pcts}
 }
 \author{Georgi N. Boshnakov}
-\seealso{ \code{\link{sim_pcfilter}} }
+\seealso{ \code{\link[mcompanion]{sim_pcfilter}} }
 \examples{
 sim_parCoef(2, 4)                    # 2 seasons
 sim_parCoef(2, 4, sigma2 = c(2, 4))

@@ -18,8 +18,8 @@ Objects can be created by calls of the form \code{new("PeriodicArmaFilter", ...,
   }
 }
 \section{Extends}{
-Class \code{"\linkS4class{VirtualArmaFilter}"}, directly.
-Class \code{"\linkS4class{VirtualMonicFilter}"}, by class "VirtualArmaFilter", distance 2.
+Class \code{"\link[sarima:VirtualArmaFilter-class]{VirtualArmaFilter}"}, directly.
+Class \code{"\link[sarima:VirtualMonicFilter-class]{VirtualMonicFilter}"}, by class "VirtualArmaFilter", distance 2.
 }
 \section{Methods}{
   \describe{

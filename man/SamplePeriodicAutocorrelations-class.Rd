@@ -20,11 +20,11 @@ Objects can be created by calls of the form \code{new("SamplePeriodicAutocorrela
 }
 \section{Extends}{
 Class \code{"\linkS4class{PeriodicAutocorrelations}"}, directly.
-Class \code{"\linkS4class{Fitted}"}, directly.
+Class \code{"\link[sarima:Fitted-class]{Fitted}"}, directly.
 Class \code{"\linkS4class{ModelCycleSpec}"}, by class "PeriodicAutocorrelations", distance 2.
-Class \code{"\linkS4class{FlexibleLagged}"}, by class "PeriodicAutocorrelations", distance 2.
+Class \code{"\link[lagged:FlexibleLagged-class]{FlexibleLagged}"}, by class "PeriodicAutocorrelations", distance 2.
 Class \code{"\linkS4class{VirtualPeriodicAutocorrelations}"}, by class "PeriodicAutocorrelations", distance 2.
-Class \code{"\linkS4class{Lagged}"}, by class "PeriodicAutocorrelations", distance 3.
+Class \code{"\link[lagged:Lagged]{Lagged}"}, by class "PeriodicAutocorrelations", distance 3.
 Class \code{"\linkS4class{VirtualPeriodicModel}"}, by class "PeriodicAutocorrelations", distance 3.
 }
 \section{Methods}{

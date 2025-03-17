@@ -19,9 +19,9 @@ Objects can be created by calls of the form \code{new("PeriodicBJFilter", coef, 
 }
 \section{Extends}{
 Class \code{"\linkS4class{PeriodicMonicFilterSpec}"}, directly.
-Class \code{"\linkS4class{VirtualBJFilter}"}, directly.
-Class \code{"\linkS4class{VirtualMonicFilterSpec}"}, by class "PeriodicMonicFilterSpec", distance 2.
-Class \code{"\linkS4class{VirtualMonicFilter}"}, by class "VirtualBJFilter", distance 2.
+Class \code{"\link[sarima:VirtualBJFilter-class]{VirtualBJFilter}"}, directly.
+Class \code{"\link[sarima:VirtualMonicFilterSpec-class]{VirtualMonicFilterSpec}"}, by class "PeriodicMonicFilterSpec", distance 2.
+Class \code{"\link[sarima:VirtualMonicFilter-class]{VirtualMonicFilter}"}, by class "VirtualBJFilter", distance 2.
 }
 \section{Methods}{
   \describe{

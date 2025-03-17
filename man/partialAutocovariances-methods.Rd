@@ -1,5 +1,6 @@
 \name{partialAutocovariances-methods}
 \docType{methods}
+\alias{partialAutocovariances}
 \alias{partialAutocovariances-methods}
 \alias{partialAutocovariances,VirtualPeriodicAutocovariances-method}
 \title{

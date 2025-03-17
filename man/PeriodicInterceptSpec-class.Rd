@@ -21,8 +21,8 @@ Objects can be created by calls of the form \code{new("PeriodicInterceptSpec", .
 \section{Extends}{
 Class \code{"\linkS4class{numeric}"}, from data part.
 Class \code{"\linkS4class{vector}"}, by class "numeric", distance 2.
-Class \code{"\linkS4class{index}"}, by class "numeric", distance 2.
-Class \code{"\linkS4class{replValue}"}, by class "numeric", distance 2.
+Class \code{"\link[Matrix:index-class]{index}"}, by class "numeric", distance 2.
+Class \code{"\link[Matrix:replValue-class]{replValue}"}, by class "numeric", distance 2.
 % 2016-10-20: do not link since numLike is not exported and R CMD check
 % gives warning:
 %      * checking Rd cross-references ... WARNING
@@ -30,8 +30,8 @@ Class \code{"\linkS4class{replValue}"}, by class "numeric", distance 2.
 %        'numLike-class'
 %Class \code{"\linkS4class{numLike}"}, by class "numeric", distance 2.
 Class \code{"numLike"}, by class "numeric", distance 2.
-Class \code{"\linkS4class{number}"}, by class "numeric", distance 2.
-Class \code{"\linkS4class{atomicVector}"}, by class "numeric", distance 2.
+Class \code{"\link[Matrix:number-class]{number}"}, by class "numeric", distance 2.
+Class \code{"\link[Matrix:atomicVector-class]{atomicVector}"}, by class "numeric", distance 2.
 }
 \section{Methods}{
   \describe{

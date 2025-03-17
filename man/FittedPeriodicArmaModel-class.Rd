@@ -35,11 +35,11 @@ Class \code{"\linkS4class{PeriodicArmaFilter}"}, by class "PeriodicArmaModel", d
 Class \code{"\linkS4class{PeriodicInterceptSpec}"}, by class "PeriodicArmaModel", distance 3.
 Class \code{"\linkS4class{VirtualPeriodicAutocovarianceModel}"}, by class "PeriodicArmaModel", distance 4.
 Class \code{"\linkS4class{VirtualPeriodicMeanModel}"}, by class "PeriodicArmaModel", distance 4.
-Class \code{"\linkS4class{VirtualArmaFilter}"}, by class "PeriodicArmaModel", distance 4.
+Class \code{"\link[sarima:VirtualArmaFilter-class]{VirtualArmaFilter}"}, by class "PeriodicArmaModel", distance 4.
 Class \code{"\linkS4class{ModelCycleSpec}"}, by class "PeriodicArmaModel", distance 4.
-Class \code{"\linkS4class{InterceptSpec}"}, by class "PeriodicArmaModel", distance 4.
+Class \code{"\link[sarima:InterceptSpec-class]{InterceptSpec}"}, by class "PeriodicArmaModel", distance 4.
 Class \code{"\linkS4class{VirtualPeriodicModel}"}, by class "PeriodicArmaModel", distance 5.
-Class \code{"\linkS4class{VirtualMonicFilter}"}, by class "PeriodicArmaModel", distance 5.
+Class \code{"\link[sarima:VirtualMonicFilter-class]{VirtualMonicFilter}"}, by class "PeriodicArmaModel", distance 5.
 }
 \section{Methods}{
   \describe{

@@ -18,9 +18,9 @@ Objects can be created by calls of the form \code{new("PeriodicAutocorrelations"
 }
 \section{Extends}{
 Class \code{"\linkS4class{ModelCycleSpec}"}, directly.
-Class \code{"\linkS4class{FlexibleLagged}"}, directly.
+Class \code{"\link[lagged:FlexibleLagged-class]{FlexibleLagged}"}, directly.
 Class \code{"\linkS4class{VirtualPeriodicAutocorrelations}"}, directly.
-Class \code{"\linkS4class{Lagged}"}, by class "FlexibleLagged", distance 2.
+Class \code{"\link[lagged:Lagged-class]{Lagged}"}, by class "FlexibleLagged", distance 2.
 Class \code{"\linkS4class{VirtualPeriodicModel}"}, by class "VirtualPeriodicAutocorrelations", distance 2.
 }
 \section{Methods}{
